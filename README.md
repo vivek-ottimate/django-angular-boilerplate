@@ -38,6 +38,8 @@ cd django-angular16-boilerplate
 
 ### 2. Backend
 
+Django 6 needs Python 3.12 or newer. Check with `python3 --version`; if it is older, create the venv with `python3.12 -m venv env` instead (Windows: `py -3.12 -m venv env`). Otherwise `pip install` fails with `No matching distribution found for Django==6.0.5`.
+
 ```bash
 python3 -m venv env
 source env/bin/activate        # Windows: env\Scripts\activate
