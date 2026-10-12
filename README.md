@@ -86,6 +86,20 @@ On first run choose **Sign in with Google** and log in with a **personal Gmail a
 
 ---
 
+## Interview problem
+
+Your interviewer will give you codes during the session. From the repo root:
+
+```bash
+python interview/run.py <start-code>     # writes problem/BRIEF.md and problem/seed.json
+python interview/run.py <check-code>     # runs the automated checks against your backend
+```
+
+Use `python3` on macOS/Linux if `python` isn't found, and `py` on Windows. The checks call Django
+directly at `http://127.0.0.1:8000`, so keep `runserver` running, with the seed data freshly loaded.
+
+---
+
 ## Verify the connection
 
 Open the Angular app and click **Ping Backend** — you should see a message and ping count returned from Django.
@@ -110,6 +124,7 @@ npm test
 ├── backend/          # Django project
 │   ├── api/          # Example app — models, views, tests
 │   └── backend/      # Django settings and URLs
-└── frontend/         # Angular 21 app
-    └── src/app/      # Components and services
+├── frontend/         # Angular 21 app
+│   └── src/app/      # Components and services
+└── interview/        # Problem runner and locked problem data
 ```

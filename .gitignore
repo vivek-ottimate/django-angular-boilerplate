@@ -19,3 +19,6 @@ frontend/.angular/
 
 # OS
 .DS_Store
+
+# Interview problem (unlocked locally per session)
+problem/
