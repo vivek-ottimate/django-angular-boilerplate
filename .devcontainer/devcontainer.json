@@ -1,15 +1,15 @@
 {
-    "name": "Django + Angular 16",
+    "name": "Django + Angular 21",
     "build": {
         "dockerfile": "Dockerfile",
         "context": ".."
     },
     "features": {
         "ghcr.io/devcontainers/features/node:1": {
-            "version": "18"
+            "version": "22"
         }
     },
-    "postCreateCommand": "npm --prefix frontend install",
+    "postCreateCommand": "npm --prefix frontend install && npm install -g @google/gemini-cli",
     "forwardPorts": [8000, 4200],
     "portsAttributes": {
         "8000": { "label": "Django Backend" },

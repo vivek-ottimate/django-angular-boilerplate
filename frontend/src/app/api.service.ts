@@ -1,14 +1,18 @@
-import { Injectable } from '@angular/core';
+import { Injectable, inject } from '@angular/core';
 import { HttpClient } from '@angular/common/http';
 import { Observable } from 'rxjs';
 
+export interface HelloResponse {
+  message: string;
+  ping_count: number;
+}
+
 @Injectable({ providedIn: 'root' })
 export class ApiService {
-  private apiUrl = '/api';
+  private readonly http = inject(HttpClient);
+  private readonly apiUrl = '/api';
 
-  constructor(private http: HttpClient) {}
-
-  getHello(): Observable<{ message: string; ping_count: number }> {
-    return this.http.get<{ message: string; ping_count: number }>(`${this.apiUrl}/hello/`);
+  getHello(): Observable<HelloResponse> {
+    return this.http.get<HelloResponse>(`${this.apiUrl}/hello/`);
   }
 }

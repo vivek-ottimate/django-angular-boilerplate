@@ -1,0 +1,15 @@
+<div class="container">
+  <h1>Django + Angular 21</h1>
+  @if (message()) {
+    <p class="message">{{ message() }}</p>
+  }
+  @if (pingCount() !== null) {
+    <p class="count">Ping count: {{ pingCount() }}</p>
+  }
+  @if (error()) {
+    <p class="error">{{ error() }}</p>
+  }
+  <button (click)="ping()" [disabled]="loading()">
+    {{ loading() ? 'Pinging...' : 'Ping Backend' }}
+  </button>
+</div>

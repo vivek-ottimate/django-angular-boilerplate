@@ -1,4 +1,4 @@
-# Django + Angular 16 Assessment
+# Django + Angular 21 Assessment
 
 ## Option A — GitHub Codespaces (recommended, no local setup)
 
@@ -19,14 +19,15 @@ npm start
 ```
 
 4. Codespaces will prompt you to open the forwarded port — click **Open in Browser** on port `4200`
+5. Gemini CLI is already installed — see [AI assistant](#ai-assistant--gemini-cli) to start it
 
 ---
 
 ## Option B — Run locally
 
 ### Prerequisites
-- Python 3.10+
-- Node.js 18+
+- Python 3.12+
+- Node.js 22+ (or 20.19+)
 
 ### 1. Clone the repo
 
@@ -59,6 +60,28 @@ npm start
 
 Angular runs at `http://localhost:4200`
 
+### 4. Gemini CLI
+
+Open a third terminal tab and install it once (macOS, Linux and Windows):
+
+```bash
+npm install -g @google/gemini-cli
+```
+
+On Linux, if this fails with `EACCES`, your Node install needs `sudo` for global packages — either rerun with `sudo` or install Node via [nvm](https://github.com/nvm-sh/nvm). On macOS, `brew install gemini-cli` also works.
+
+---
+
+## AI assistant — Gemini CLI
+
+From the repo root (not `backend/` or `frontend/`, so it can see the whole project):
+
+```bash
+gemini
+```
+
+On first run choose **Sign in with Google** and log in with a **personal Gmail account** — work or school accounts need extra Google Cloud setup. The free tier needs no credit card.
+
 ---
 
 ## Verify the connection
@@ -85,6 +108,6 @@ npm test
 ├── backend/          # Django project
 │   ├── api/          # Example app — models, views, tests
 │   └── backend/      # Django settings and URLs
-└── frontend/         # Angular 16 app
+└── frontend/         # Angular 21 app
     └── src/app/      # Components and services
 ```

@@ -1,5 +1,6 @@
 import { TestBed } from '@angular/core/testing';
-import { HttpClientTestingModule, HttpTestingController } from '@angular/common/http/testing';
+import { provideHttpClient } from '@angular/common/http';
+import { HttpTestingController, provideHttpClientTesting } from '@angular/common/http/testing';
 import { ApiService } from './api.service';
 
 describe('ApiService', () => {
@@ -8,7 +9,7 @@ describe('ApiService', () => {
 
   beforeEach(() => {
     TestBed.configureTestingModule({
-      imports: [HttpClientTestingModule]
+      providers: [provideHttpClient(), provideHttpClientTesting()],
     });
     service = TestBed.inject(ApiService);
     httpMock = TestBed.inject(HttpTestingController);
@@ -21,12 +22,13 @@ describe('ApiService', () => {
   });
 
   it('should GET /api/hello/ and return message', () => {
-    service.getHello().subscribe(data => {
-      expect(data).toEqual({ message: 'Hello from Django!', ping_count: 1 });
-    });
+    let result: unknown;
+    service.getHello().subscribe((data) => (result = data));
 
     const req = httpMock.expectOne('/api/hello/');
     expect(req.request.method).toBe('GET');
     req.flush({ message: 'Hello from Django!', ping_count: 1 });
+
+    expect(result).toEqual({ message: 'Hello from Django!', ping_count: 1 });
   });
 });
