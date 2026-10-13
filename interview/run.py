@@ -80,7 +80,7 @@ def write_problem(payload, force):
 
 def run_checks(payload, base_url):
     """Run a check payload in memory against the backend."""
-    namespace = {"__name__": "interview_checks"}
+    namespace = {"__name__": "interview_checks", "PROBLEM_DIR": PROBLEM_DIR}
     exec(compile(payload["source"], "<interview checks>", "exec"), namespace)
     return namespace["main"](base_url)
 
