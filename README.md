@@ -97,6 +97,7 @@ python interview/run.py <check-code>     # runs the automated checks against you
 
 Use `python3` on macOS/Linux if `python` isn't found, and `py` on Windows. The checks call Django
 directly at `http://127.0.0.1:8000`, so keep `runserver` running, with the seed data freshly loaded.
+Keep the `DATABASES` settings in `backend/backend/settings.py` as they are; the checks rely on them.
 
 ---
 
