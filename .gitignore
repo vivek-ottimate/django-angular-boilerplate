@@ -4,11 +4,13 @@ __pycache__/
 *.pyo
 env/
 venv/
+.venv/
 *.egg-info/
 dist/
 build/
 
 # Django
+backend/db.sqlite3
 *.log
 media/
 
@@ -22,3 +24,6 @@ frontend/.angular/
 
 # Interview problem (unlocked locally per session)
 problem/
+
+# Node.js and Gemini CLI downloaded by dev.py
+.tools/

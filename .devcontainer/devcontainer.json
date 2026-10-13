@@ -9,7 +9,7 @@
             "version": "22"
         }
     },
-    "postCreateCommand": "npm --prefix frontend install && npm install -g @google/gemini-cli",
+    "postCreateCommand": "uv sync && npm --prefix frontend ci && npm install -g @google/gemini-cli",
     "forwardPorts": [8000, 4200],
     "portsAttributes": {
         "8000": { "label": "Django Backend" },
