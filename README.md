@@ -25,8 +25,8 @@ Then open a **new** terminal so `uv` is on your PATH.
 **2. Clone the repo and run the setup check**
 
 ```bash
-git clone https://github.com/vivek-ottimate/django-angular16-boilerplate.git
-cd django-angular16-boilerplate
+git clone https://github.com/vivek-ottimate/django-angular-boilerplate.git
+cd django-angular-boilerplate
 uv run dev.py check
 ```
 
