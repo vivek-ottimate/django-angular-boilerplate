@@ -30,22 +30,29 @@ cd django-angular-boilerplate
 uv run dev.py check
 ```
 
-The check installs everything (Python packages, frontend packages, Gemini CLI, and Node.js if
+The check installs everything (Python packages, frontend packages, Antigravity CLI, and Node.js if
 needed), then starts both servers once to confirm they work. The first run takes a few minutes. It
 ends with **All set**, or tells you exactly what to fix.
 
-**3. Sign in to Gemini CLI**
+**3. Sign in to Antigravity CLI**
+
+[Antigravity CLI](https://antigravity.google/) (`agy`) is Google's free AI coding agent for the
+terminal. Start it from the repo root:
 
 ```bash
-uv run dev.py gemini
+uv run dev.py agy
 ```
 
-On first run choose **Sign in with Google** and log in with a **personal Gmail account** — work or
-school accounts need extra Google Cloud setup. The free tier needs no credit card. Run
-`uv run dev.py check` once more; it should now show Gemini as signed in.
+It prints a Google sign-in link. Open it, sign in and approve. A **personal Gmail account** is
+simplest, since a work or school account may be blocked by its admin. No credit card is needed.
+`agy` usually notices the sign-in by itself; if it keeps waiting, the page shows a code starting
+`4/0`: copy it and paste it into the terminal where `agy` is waiting.
 
-If you already have Gemini CLI installed, plain `gemini` works too. Start it from the repo root so
-it can see the whole project.
+Then quit `agy` (Ctrl+C) and run `uv run dev.py check` once more; it should show Antigravity CLI as
+signed in.
+
+If you already have `agy` installed, plain `agy` works too. The free plan has a weekly allowance per
+model family; if the Gemini models run out, switch to a Claude model with `/model`.
 
 ## Start the project
 
@@ -57,14 +64,15 @@ This starts Django on `http://localhost:8000` and Angular on `http://localhost:4
 **Ctrl+C** stops both. Django reloads when you change Python files, and Angular when you change
 frontend files. Open `http://localhost:4200` and click **Ping Backend** to see them talk.
 
-Use a second terminal for Gemini CLI and anything else.
+Use a second terminal for `agy` and anything else.
 
 ## No local setup? Use GitHub Codespaces
 
 1. Click **Code → Codespaces → Create codespace on main** on the GitHub repo page
 2. Wait a few minutes for the environment to build
 3. In the terminal, run `uv run dev.py`, then open the forwarded port `4200` when prompted
-4. In a second terminal, run `gemini` and sign in as above
+4. In a second terminal, run `uv run dev.py agy` and sign in as above, pasting the `4/0…` code
+   from the sign-in page if `agy` keeps waiting
 
 ## Interview problem
 
