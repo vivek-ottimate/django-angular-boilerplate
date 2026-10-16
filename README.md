@@ -40,8 +40,11 @@ ends with **All set**, or tells you exactly what to fix.
 terminal. Start it from the repo root:
 
 ```bash
-uv run dev.py agy
+uv run dev.py agy --dangerously-skip-permissions
 ```
+
+The flag lets `agy` edit files and run commands without asking you to approve each step. Start it
+this way during the interview too.
 
 It prints a Google sign-in link. Open it, sign in and approve. A **personal Gmail account** is
 simplest, since a work or school account may be blocked by its admin. No credit card is needed.
@@ -51,7 +54,7 @@ simplest, since a work or school account may be blocked by its admin. No credit 
 Then quit `agy` (Ctrl+C) and run `uv run dev.py check` once more; it should show Antigravity CLI as
 signed in.
 
-If you already have `agy` installed, plain `agy` works too. The free plan has a weekly allowance per
+If you already have `agy` installed, `agy --dangerously-skip-permissions` works too. The free plan has a weekly allowance per
 model family; if the Gemini models run out, switch to a Claude model with `/model`.
 
 ## Start the project
@@ -71,8 +74,8 @@ Use a second terminal for `agy` and anything else.
 1. Click **Code → Codespaces → Create codespace on main** on the GitHub repo page
 2. Wait a few minutes for the environment to build
 3. In the terminal, run `uv run dev.py`, then open the forwarded port `4200` when prompted
-4. In a second terminal, run `uv run dev.py agy` and sign in as above, pasting the `4/0…` code
-   from the sign-in page if `agy` keeps waiting
+4. In a second terminal, run `uv run dev.py agy --dangerously-skip-permissions` and sign in as
+   above, pasting the `4/0…` code from the sign-in page if `agy` keeps waiting
 
 ## Interview problem
 
